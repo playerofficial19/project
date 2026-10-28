@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web report - Happy Paws Vaasa</title>
+  <meta name="description" content="Project specification, site map, design choices and reflections for the Happy Paws course project.">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="home-link">
+        <img src="img/logo.png" alt="Happy Paws logo - an orange paw print" class="wag">
+      </a>
+      <p class="site-title"><a href="index.html">Happy Paws Vaasa</a></p>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Main menu">
+    <label class="menu-button" for="menu-toggle">☰ Menu</label>
+    <input type="checkbox" id="menu-toggle">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services &amp; prices</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About &amp; contact</a></li>
+      <li><a href="report.html" class="current">Web report</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1>Web report</h1>
+      <p>This page is the written report of the course project: the specification we agreed
+         with the customer, the plan, the design choices, and finally our own reflections
+         on how the work went.</p>
+
+      <section class="report-section">
+        <h2>1. The customer and the problem</h2>
+        <p><strong>Customer:</strong> Anna Lindqvist, who runs a one-woman dog walking
+           service in Vaasa. So far her whole business lives on an Instagram account
+           (@happypawsvaasa, about 210 followers) and word of mouth.</p>
+        <p><strong>Problem:</strong> many dog owners in Vaasa work long or shifting days.
+           The dog still needs its walks. Anna solves this, but she has no website, so
+           she looks less serious than she is, and new customers have no way to check
+           prices, services or where she operates.</p>
+        <p><strong>Purpose of the site:</strong> a warm, trustworthy business card that
+           presents the services and prices clearly, shows photos from real walks, and
+           tells new customers how to get in touch. The site does not handle bookings or
+           payments - that is out of scope for version 1.</p>
+      </section>
+
+      <section class="report-section">
+        <h2>2. Specification and scope</h2>
+        <p><strong>Title of the site:</strong> Happy Paws Vaasa.</p>
+        <p><strong>Target audience:</strong> adults 25-60 in the Vaasa region who own a
+           dog (or a puppy) and work away from home. Most of them will find the site on
+           their phone, so the site must work well on small screens first.</p>
+        <p><strong>Starting point:</strong> the customer already has Instagram and a logo
+           idea (an orange paw). The site reuses the paw and the orange colour so that
+           old Instagram followers recognise the brand.</p>
+        <p><strong>In scope (agreed with the customer):</strong></p>
+        <ul>
+          <li>5 pages: Home, Services &amp; prices, Gallery, About &amp; contact, Web report</li>
+          <li>real text in English, written together with the customer</li>
+          <li>price table, walking hours, contact details and a map of the home base</li>
+          <li>photo gallery with thumbnails and one short video</li>
+          <li>works on phone, tablet and desktop</li>
+        </ul>
+        <p><strong>Out of scope (version 1):</strong> online booking, payment, customer
+           login, blog, newsletter, other languages than English.</p>
+        <p><strong>Working methods explained to the customer:</strong> we followed a
+           lightweight waterfall: first the specification and wireframes on paper, then
+           customer approval, then building, then validation and a walk-through together.
+           We also explained <em>why the customer cannot just edit the texts herself</em>:
+           the pages are static HTML files, so changing a sentence means editing the file
+           and re-uploading it - there is no editing screen like in Instagram or WordPress.
+           If Anna later wants to update prices often, the natural next step is either a
+           small CMS or a maintenance agreement where we do the edits.</p>
+        <p><strong>Responsiveness definition:</strong> the site is built mobile first and
+           tuned for three breakpoints: phones (base styles, ~360-639 px), tablets
+           (&ge;640 px, two columns) and desktops (&ge;1024 px, three columns and a
+           horizontal menu). On 4K/8K screens the content is capped at a 1100 px centred
+           column, because mile-long lines of text are hard to read; the page background
+           still fills the screen. Older smartphones are supported since the site uses no
+           JavaScript at all and the images are small. A smartwatch is explicitly out of
+           scope: the audience books dog walks at home or on a break, not from a watch
+           face, and a usable watch layout would need a separate design.</p>
+      </section>
+
+      <section class="report-section">
+        <h2>3. Site map</h2>
+        <p>All five pages are reachable from the main menu on every page, and the logo
+           always leads back to Home, so the whole site is at most one click deep.
+           The gallery pictures live in their own small pages that open inside the
+           gallery iframe.</p>
+        <figure>
+          <svg class="sitemap" viewBox="0 0 900 430" role="img"
+               aria-label="Site map: Home, Services, Gallery, About and Report in the main menu on every page; Gallery contains six picture pages g1 to g6 shown in an iframe.">
+            <title>Site map of happypaws</title>
+            <!-- main menu row -->
+            <rect x="30"  y="60" width="140" height="50" rx="10" fill="#f2994a" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="100" y="90" text-anchor="middle" font-size="17" fill="#4a2c1a">Home</text>
+            <rect x="200" y="60" width="140" height="50" rx="10" fill="#fdf6ec" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="270" y="90" text-anchor="middle" font-size="17" fill="#4a2c1a">Services</text>
+            <rect x="370" y="60" width="140" height="50" rx="10" fill="#fdf6ec" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="440" y="90" text-anchor="middle" font-size="17" fill="#4a2c1a">Gallery</text>
+            <rect x="540" y="60" width="140" height="50" rx="10" fill="#fdf6ec" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="610" y="90" text-anchor="middle" font-size="17" fill="#4a2c1a">About</text>
+            <rect x="710" y="60" width="150" height="50" rx="10" fill="#6ba368" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="785" y="90" text-anchor="middle" font-size="17" fill="#fdf6ec">Report</text>
+            <!-- every page has the menu -->
+            <line x1="100" y1="15" x2="785" y2="15" stroke="#78512d" stroke-width="3"></line>
+            <line x1="100" y1="15" x2="100" y2="60" stroke="#78512d" stroke-width="3"></line>
+            <line x1="270" y1="15" x2="270" y2="60" stroke="#78512d" stroke-width="3"></line>
+            <line x1="440" y1="15" x2="440" y2="60" stroke="#78512d" stroke-width="3"></line>
+            <line x1="610" y1="15" x2="610" y2="60" stroke="#78512d" stroke-width="3"></line>
+            <line x1="785" y1="15" x2="785" y2="60" stroke="#78512d" stroke-width="3"></line>
+            <text x="450" y="45" text-anchor="middle" font-size="15" fill="#4a2c1a">main menu + logo link on EVERY page</text>
+            <!-- gallery children -->
+            <line x1="440" y1="110" x2="440" y2="150" stroke="#78512d" stroke-width="3"></line>
+            <rect x="120" y="150" width="640" height="50" rx="10" fill="#aed9e0" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="440" y="180" text-anchor="middle" font-size="16" fill="#4a2c1a">big/g1.html ... big/g6.html - open inside the Gallery iframe</text>
+            <!-- home shortcuts -->
+            <line x1="100" y1="110" x2="100" y2="240" stroke="#f2994a" stroke-width="3"></line>
+            <rect x="30" y="240" width="200" height="50" rx="10" fill="#fdf6ec" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="130" y="270" text-anchor="middle" font-size="15" fill="#4a2c1a">Footer: contact + hours</text>
+            <line x1="440" y1="200" x2="440" y2="240" stroke="#f2994a" stroke-width="3"></line>
+            <rect x="270" y="240" width="260" height="50" rx="10" fill="#fdf6ec" stroke="#4a2c1a" stroke-width="3"></rect>
+            <text x="400" y="270" text-anchor="middle" font-size="15" fill="#4a2c1a">Footer: site map links (all pages)</text>
+            <text x="450" y="350" text-anchor="middle" font-size="15" fill="#78512d">Orange arrows = extra shortcuts to useful places.</text>
+            <text x="450" y="395" text-anchor="middle" font-size="15" fill="#78512d">Everything is at most one click from the main menu.</text>
+          </svg>
+          <figcaption>Site map. Drawn as an inline SVG so it scales crisply on every screen.</figcaption>
+        </figure>
+      </section>
+
+      <section class="report-section">
+        <h2>4. Wireframes</h2>
+        <p>Before building anything we sketched the layout with boxes on paper-style
+           wireframes: one for the home page and one shared by the sub-pages. Header,
+           menu and footer are identical on all pages so the site feels like one site.</p>
+        <figure>
+          <img src="img/wireframe-home.png" alt="Wireframe of the home page: header, menu, hero image with heading, three cards, featured article and footer">
+          <figcaption>Wireframe for the home page.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/wireframe-sub.png" alt="Wireframe of a sub page: header, menu, heading, intro, cards, table and chart, call to action and footer">
+          <figcaption>Wireframe for the sub-pages (example: Services).</figcaption>
+        </figure>
+      </section>
+
+      <section class="report-section">
+        <h2>5. Colours, fonts and images</h2>
+        <p>We chose a warm, friendly palette that matches the orange paw logo: cream as
+           a calm background, brown for text and footer, orange for actions and headings,
+           green for nature accents and a light sky blue for boxes. The palette was tuned
+           with colour tools and kept to five colours for harmony.</p>
+        <figure>
+          <img src="img/palette.png" alt="The five project colours as swatches: orange, brown, green, cream and light blue with their hex codes">
+          <figcaption>The Happy Paws palette with hex codes.</figcaption>
+        </figure>
+        <p>Fonts come from Google Fonts: <strong>Fredoka</strong> (rounded, playful)
+           for headings and <strong>Nunito</strong> (soft, very readable) for body text.
+           Rounded shapes and warm colours both support the same feeling: this is a
+           friendly service, not a bank.</p>
+        <figure>
+          <img src="img/fonts.png" alt="Font sample sheet showing Fredoka for headings and Nunito for body text">
+          <figcaption>Font choice and why.</figcaption>
+        </figure>
+        <p>All photos and the logo are self-made: the logo is a transparent PNG paw drawn
+           for this project, and the photos are our own illustrations, so there are no
+           copyright problems anywhere on the site.</p>
+      </section>
+
+      <section class="report-section">
+        <h2>6. Structure, style and responsiveness</h2>
+        <ul>
+          <li>Every page uses HTML5 semantic elements: <code>header</code>,
+              <code>nav</code>, <code>main</code>, <code>section</code>,
+              <code>article</code>, <code>figure</code>, <code>footer</code> and exactly
+              one <code>h1</code>.</li>
+          <li>All styling lives in one shared CSS file (<code>css/style.css</code>) with
+              selectors, classes and pseudo-classes: links change colour on
+              <code>:hover</code>, <code>:active</code>, <code>:focus</code> and
+              <code>:visited</code>, and the current menu item is highlighted with the
+              <code>.current</code> class.</li>
+          <li>Layout: the cards and footer use <strong>CSS grid</strong>, the menu and
+              thumbnail strip use <strong>flexbox</strong>, and the portrait photo on the
+              About page is placed with a <strong>float</strong> so the text wraps
+              around it.</li>
+          <li>Mobile first: base styles are for phones; media queries at 640 px and
+              1024 px re-arrange the layout for tablets and desktops (three breakpoints
+              in total, counting the base).</li>
+          <li>The menu is a CSS-only hamburger on small screens (a hidden checkbox and a
+              label - no JavaScript), and a normal horizontal bar on desktops.</li>
+          <li>Images used as links: the logo in the header always leads back to Home,
+              and the paw button on the Home page opens Instagram in a new tab.</li>
+          <li>Images are stored in the sizes they are shown in (thumbnails are real
+              160&times;120 files, not shrunken big photos), so pages load fast.</li>
+        </ul>
+      </section>
+
+      <section class="report-section">
+        <h2>7. Media and animation</h2>
+        <ul>
+          <li><strong>Gallery with iframe:</strong> thumbnails open big versions of the
+              photos inside a named iframe (<code>target="viewer"</code>) - a classic
+              no-JavaScript gallery.</li>
+          <li><strong>Featured image with the picture element:</strong> the home page
+              hero uses <code>picture</code> with three different crops: a wide 16:9
+              image for desktops, a 4:3 crop for tablets and a portrait 9:16 crop for
+              phones, because a wide landscape photo becomes a tiny stamp on a phone
+              screen.</li>
+          <li><strong>SVG drawings:</strong> the bar chart on the Services page and the
+              site map above are inline SVG, so they scale sharply on every screen.</li>
+          <li><strong>Video:</strong> a 5-second 640&times;360 MP4 of a walk, filmed in
+              landscape like an intellectual, with a poster image and a download link
+              as fallback.</li>
+          <li><strong>Audio:</strong> a short greeting on the About page, served as MP3
+              with a WAV fallback.</li>
+          <li><strong>Map:</strong> the home base location is embedded from
+              OpenStreetMap on the About page.</li>
+          <li><strong>CSS animations:</strong> the paw badge bounces, the hero heading
+              slides in, and the footer logo wags - all with <code>@keyframes</code>
+              using several steps (0/25/50/75/100%), not just from/to.</li>
+        </ul>
+      </section>
+
+      <section class="report-section">
+        <h2>8. Validation</h2>
+        <p>All five pages were run through the W3C Markup Validator
+           (validator.w3.org) and the stylesheet through the W3C CSS Validator
+           (jigsaw.w3.org/css-validator). The pages pass with no errors; the only
+           validator notes are Google Fonts URLs, which are outside our control.
+           Validation caught real mistakes during the work: a missing
+           <code>alt</code> on one gallery thumbnail and a <code>label</code> without
+           a matching <code>for</code> attribute.</p>
+      </section>
+
+      <section class="report-section">
+        <h2>9. Reflections</h2>
+        <p><strong>Time used:</strong> about 32 hours in total: 6 h specification,
+           wireframes and design, 14 h HTML/CSS, 6 h images, audio and video,
+           3 h validation and fixes, 3 h the report.</p>
+        <p><strong>What was easy:</strong> writing the content - once the customer and
+           her problem were clear, the texts almost wrote themselves. The price table
+           and contact page were pure joy: semantic HTML fits them perfectly.</p>
+        <p><strong>What was hard:</strong> the CSS-only hamburger menu. Without
+           JavaScript the checkbox hack was a real puzzle: the checkbox, the label and
+           the menu list must be siblings for <code>:checked + ul</code> to work.
+           Also getting the <code>picture</code> crops to actually look different (not
+           just differently squished) took several attempts.</p>
+        <p><strong>What was fun:</strong> drawing the whole image material ourselves
+           and the moment the iframe gallery worked with zero lines of JavaScript.</p>
+        <p><strong>What we learned:</strong> that most of the work is planning, not
+           typing; that mobile first actually makes CSS simpler; and that validators
+           are friends, not police - they found bugs we stared straight through.</p>
+        <p><strong>Feedback for the course:</strong> the project is a good size and the
+           requirements push you to touch every corner of HTML and CSS. A wish for next
+           year: one extra lecture example of the iframe gallery and the checkbox menu,
+           since both are classics that everyone ends up googling anyway. Extra points
+           are welcome for: the self-made image set, the SVG chart and site map, and
+           the audio served in two formats.</p>
+      </section>
+
+      <section class="report-section">
+        <h2>10. Sources and licences</h2>
+        <ul>
+          <li>All images, the logo, the video and the audio: self-produced for this project.</li>
+          <li>Fonts Fredoka and Nunito: Google Fonts, Open Font License.</li>
+          <li>Map data in the OpenStreetMap embed: &copy; OpenStreetMap contributors, ODbL licence.</li>
+          <li>No copyrighted third-party material is used on the site.</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h3>Contact</h3>
+        <address>
+          Happy Paws Vaasa<br>
+          Sandviksgatan 15<br>
+          65100 Vasa, Finland<br>
+          <a href="tel:+358401234567">+358 40 123 4567</a><br>
+          <a href="mailto:hej@happypawsvaasa.fi">hej@happypawsvaasa.fi</a>
+        </address>
+      </div>
+      <div>
+        <h3>Walking hours</h3>
+        <ul>
+          <li>Mon-Fri 08:00-18:00</li>
+          <li>Sat 09:00-15:00</li>
+          <li>Sun closed (dogs rest too)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site map</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services &amp; prices</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About &amp; contact</a></li>
+          <li><a href="report.html">Web report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-note">
+      <p>&copy; 2026 Happy Paws Vaasa. All images drawn by us - no borrowed pixels.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery - Happy Paws Vaasa</title>
+  <meta name="description" content="Photos and a video from Happy Paws dog walks in Vaasa.">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="home-link">
+        <img src="img/logo.png" alt="Happy Paws logo - an orange paw print" class="wag">
+      </a>
+      <p class="site-title"><a href="index.html">Happy Paws Vaasa</a></p>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Main menu">
+    <label class="menu-button" for="menu-toggle">☰ Menu</label>
+    <input type="checkbox" id="menu-toggle">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services &amp; prices</a></li>
+      <li><a href="gallery.html" class="current">Gallery</a></li>
+      <li><a href="about.html">About &amp; contact</a></li>
+      <li><a href="report.html">Web report</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1>Gallery</h1>
+      <p>Click a thumbnail and the big picture opens inside the frame below - the gallery
+         is built with an <strong>iframe</strong> and no JavaScript at all. The thumbnails are
+         small versions of the photos, so the page loads fast even on mobile data.</p>
+
+      <section>
+        <h2>Walks of the season</h2>
+        <ul class="thumbs">
+          <li><a href="big/g1.html" target="viewer"><img src="img/t1.jpg" alt="Thumbnail: morning walk in a green park"></a></li>
+          <li><a href="big/g2.html" target="viewer"><img src="img/t2.jpg" alt="Thumbnail: sunset walk with two dogs"></a></li>
+          <li><a href="big/g3.html" target="viewer"><img src="img/t3.jpg" alt="Thumbnail: first snow of the winter"></a></li>
+          <li><a href="big/g4.html" target="viewer"><img src="img/t4.jpg" alt="Thumbnail: forest trail on a lush summer day"></a></li>
+          <li><a href="big/g5.html" target="viewer"><img src="img/t5.jpg" alt="Thumbnail: dog running on the beach sand"></a></li>
+          <li><a href="big/g6.html" target="viewer"><img src="img/t6.jpg" alt="Thumbnail: walk under a cloudy grey sky"></a></li>
+        </ul>
+
+        <iframe src="big/g1.html" name="viewer" class="gallery-frame"
+                title="Big gallery picture - changes when you click a thumbnail"></iframe>
+      </section>
+
+      <section>
+        <h2>Video: a normal Tuesday walk</h2>
+        <p>One lap around the park, filmed in landscape mode because most people will
+           watch this on a computer or TV. The file is a small 640&times;360 MP4
+           (35&nbsp;kB), which is friendly for both phones and slow summer-cabin internet.</p>
+        <figure>
+          <video controls poster="img/videoposter.jpg">
+            <source src="media/walk.mp4" type="video/mp4">
+            <p>Sorry, your browser cannot play this video.
+               <a href="media/walk.mp4">Download it instead</a>.</p>
+          </video>
+          <figcaption>Anna and the dog crossing the park in 5 seconds.</figcaption>
+        </figure>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h3>Contact</h3>
+        <address>
+          Happy Paws Vaasa<br>
+          Sandviksgatan 15<br>
+          65100 Vasa, Finland<br>
+          <a href="tel:+358401234567">+358 40 123 4567</a><br>
+          <a href="mailto:hej@happypawsvaasa.fi">hej@happypawsvaasa.fi</a>
+        </address>
+      </div>
+      <div>
+        <h3>Walking hours</h3>
+        <ul>
+          <li>Mon-Fri 08:00-18:00</li>
+          <li>Sat 09:00-15:00</li>
+          <li>Sun closed (dogs rest too)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site map</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services &amp; prices</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About &amp; contact</a></li>
+          <li><a href="report.html">Web report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-note">
+      <p>&copy; 2026 Happy Paws Vaasa. All images drawn by us - no borrowed pixels.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+/* ============================================================
+   Happy Paws Vaasa - shared stylesheet
+   Mobile first: base styles are for phones, then tablet (640px)
+   and desktop (1024px). Grid + flexbox + float are all used.
+   ============================================================ */
+
+/* ---------- variables & base ---------- */
+:root {
+  --orange: #f2994a;
+  --orange-dark: #d97b2b;
+  --brown: #4a2c1a;
+  --brown-soft: #78512d;
+  --green: #6ba368;
+  --green-dark: #4f7d4c;
+  --cream: #fdf6ec;
+  --sky: #aed9e0;
+  --white: #ffffff;
+  --shadow: 0 2px 8px rgba(74, 44, 26, 0.15);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--brown);
+  background-color: var(--cream);
+}
+
+/* every page wraps its content so all pages share the same frame */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1, h2, h3 {
+  font-family: "Fredoka", "Comic Sans MS", cursive;
+  line-height: 1.2;
+  color: var(--brown);
+}
+
+h1 { font-size: 1.9rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.1rem; }
+
+p { margin: 0 0 1rem; }
+
+img { max-width: 100%; height: auto; }
+
+/* ---------- links (pseudo-classes) ---------- */
+a {
+  color: var(--orange-dark);
+  text-decoration: underline;
+}
+a:hover { color: var(--brown); text-decoration: none; }
+a:active { color: var(--green-dark); }
+a:focus { outline: 3px dashed var(--orange); outline-offset: 2px; }
+a:visited { color: var(--brown-soft); }
+
+/* ---------- header ---------- */
+.site-header {
+  background-color: var(--brown);
+  color: var(--cream);
+}
+.site-header .container {
+  display: flex;               /* flexbox: logo left, title right */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.site-header a.home-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.site-header .site-title {
+  font-family: "Fredoka", cursive;
+  font-size: 1.3rem;
+  margin: 0;
+}
+.site-header .site-title a { color: var(--cream); text-decoration: none; }
+.site-header .site-title a:hover { color: var(--orange); }
+
+/* ---------- navigation: CSS-only hamburger (checkbox hack) ---------- */
+.main-nav label.menu-button {
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  background-color: var(--orange);
+  color: var(--brown);
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+.main-nav input#menu-toggle { display: none; }
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;               /* hidden on small screens until checked */
+}
+.main-nav input#menu-toggle:checked + ul { display: block; }
+.main-nav li { border-bottom: 1px solid var(--brown-soft); }
+.main-nav li:last-child { border-bottom: none; }
+.main-nav a {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: var(--cream);
+  text-decoration: none;
+}
+.main-nav a:hover { background-color: var(--orange); color: var(--brown); }
+.main-nav a:visited { color: var(--cream); }
+.main-nav a:visited:hover { color: var(--brown); }
+.main-nav a.current {
+  background-color: var(--green-dark);
+  color: var(--white);
+  font-weight: bold;
+}
+
+/* ---------- hero ---------- */
+.hero { position: relative; }
+.hero picture img {
+  display: block;
+  width: 100%;
+}
+.hero .hero-text {
+  padding: 1rem 0;
+}
+.hero .hero-text h1 { margin-bottom: 0.25rem; }
+
+/* animated paw badge: keyframes with several steps (0-25-50-75-100) */
+.paw-badge {
+  width: 64px;
+  animation: bounce 2.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-14px) rotate(-12deg); }
+  50%  { transform: translateY(0) rotate(0deg); }
+  75%  { transform: translateY(-7px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* soft entrance animation for hero heading */
+.hero h1 {
+  animation: fadeSlide 1.6s ease-out 1 both;
+}
+@keyframes fadeSlide {
+  0%   { opacity: 0; transform: translateY(18px); }
+  60%  { opacity: 0.8; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* wagging logo in the footer (transform-origin keeps the pivot left) */
+.wag { animation: wag 3s ease-in-out infinite; transform-origin: left center; }
+@keyframes wag {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(-6deg); }
+  40%  { transform: rotate(5deg); }
+  60%  { transform: rotate(-3deg); }
+  80%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ---------- cards / grids ---------- */
+.cards {
+  display: grid;               /* CSS grid: 1 column on phones */
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+.card {
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+.card:hover { transform: translateY(-4px); }
+.card h3 { margin-top: 0; color: var(--orange-dark); }
+
+/* ---------- figures ---------- */
+figure { margin: 0 0 1.5rem; }
+figcaption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--brown-soft);
+  padding-top: 0.4rem;
+}
+
+/* ---------- tables ---------- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: var(--white);
+  margin-bottom: 1.5rem;
+}
+caption {
+  text-align: left;
+  font-style: italic;
+  padding-bottom: 0.5rem;
+  color: var(--brown-soft);
+}
+th, td {
+  border: 1px solid var(--brown-soft);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+th { background-color: var(--orange); color: var(--brown); }
+tbody tr:nth-child(even) { background-color: #f7ecdd; }
+
+/* ---------- gallery (iframe) ---------- */
+.gallery-frame {
+  width: 100%;
+  height: 430px;
+  border: 3px solid var(--brown);
+  border-radius: 12px;
+  background-color: var(--white);
+}
+.thumbs {
+  display: flex;               /* flexbox: thumbnails wrap on small screens */
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  list-style: none;
+}
+.thumbs a {
+  border: 3px solid transparent;
+  border-radius: 8px;
+  padding: 0;
+  line-height: 0;
+}
+.thumbs a:hover { border-color: var(--orange); }
+.thumbs img {
+  width: 160px;
+  height: 120px;
+  border-radius: 6px;
+}
+
+/* ---------- video, audio, map ---------- */
+video, audio { width: 100%; }
+video { border-radius: 12px; border: 3px solid var(--brown); }
+.map-frame {
+  width: 100%;
+  height: 350px;
+  border: 3px solid var(--green-dark);
+  border-radius: 12px;
+}
+
+/* ---------- SVG chart ---------- */
+.chart { background-color: var(--white); border-radius: 12px; padding: 1rem; }
+
+/* ---------- report page extras ---------- */
+.report-section {
+  background-color: var(--white);
+  border-left: 6px solid var(--green);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.sitemap { width: 100%; height: auto; }
+
+/* float: portrait photo floats inside the text on wider screens */
+.float-img { margin: 0 0 1rem; }
+.about-photo {
+  border: 3px solid var(--orange);
+  border-radius: 12px;
+}
+
+/* callout box */
+.callout {
+  background-color: var(--sky);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  background-color: var(--brown);
+  color: var(--cream);
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+}
+.site-footer .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+.site-footer h3 { color: var(--orange); margin-top: 0; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; }
+.site-footer a { color: var(--sky); text-decoration: none; }
+.site-footer a:hover { color: var(--orange); text-decoration: underline; }
+.footer-note {
+  border-top: 1px solid var(--brown-soft);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* paw button (image used as a link) */
+.paw-button img {
+  width: 56px;
+  transition: transform 0.2s ease;
+}
+.paw-button:hover img { transform: scale(1.2) rotate(-10deg); }
+
+/* ============================================================
+   TABLET: two column cards, two column footer, floated photo
+   ============================================================ */
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .site-footer .container { grid-template-columns: repeat(2, 1fr); }
+
+  /* float layout: about photo sits on the left, text wraps around it */
+  .float-img {
+    float: left;
+    width: 260px;
+    margin: 0 1.25rem 0.5rem 0;
+  }
+  .float-img .about-photo { width: 100%; }
+
+  .hero .hero-text { padding: 1.25rem 0; }
+}
+
+/* ============================================================
+   DESKTOP: three column cards, horizontal menu, three footer
+   columns. Site is capped at 1100px so it stays readable on
+   4K/8K screens (see the report page for the reasoning).
+   ============================================================ */
+@media (min-width: 1024px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .site-footer .container { grid-template-columns: repeat(3, 1fr); }
+
+  /* the checkbox menu becomes a normal horizontal bar */
+  .main-nav label.menu-button { display: none; }
+  .main-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--brown);
+  }
+  .main-nav li { border-bottom: none; }
+  .main-nav a { padding: 0.7rem 1.4rem; }
+
+  .float-img { width: 320px; }
+}

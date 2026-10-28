@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services and prices - Happy Paws Vaasa</title>
+  <meta name="description" content="Dog walking, puppy visits and pet taxi services in Vaasa with clear prices.">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="home-link">
+        <img src="img/logo.png" alt="Happy Paws logo - an orange paw print" class="wag">
+      </a>
+      <p class="site-title"><a href="index.html">Happy Paws Vaasa</a></p>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Main menu">
+    <label class="menu-button" for="menu-toggle">☰ Menu</label>
+    <input type="checkbox" id="menu-toggle">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="current">Services &amp; prices</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About &amp; contact</a></li>
+      <li><a href="report.html">Web report</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1>Services &amp; prices</h1>
+      <p>Every dog is different, so we offer more than one kind of walk. All services
+         include a photo report and fresh water after the visit. Prices include VAT.</p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Group walk</h3>
+          <p>A 45-minute walk in a small group of max three friendly dogs.
+             Good for social dogs who love company.</p>
+        </article>
+        <article class="card">
+          <h3>Solo walk</h3>
+          <p>A 45-minute one-on-one walk for dogs that prefer humans to other dogs,
+             or are still learning their manners.</p>
+        </article>
+        <article class="card">
+          <h3>Puppy visit</h3>
+          <p>A 30-minute home visit for puppies: play, a short walk, feeding and
+             cleaning up little accidents.</p>
+        </article>
+        <article class="card">
+          <h3>Pet taxi</h3>
+          <p>Need to get your dog to the vet or groomer? We drive your dog and
+             wait with it if you cannot come along.</p>
+        </article>
+      </div>
+
+      <h2>Price list</h2>
+      <table>
+        <caption>Prices in euros, valid from 1.9.2026.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Service</th>
+            <th scope="col">One-time</th>
+            <th scope="col">With monthly pass</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Group walk 45 min</th>
+            <td>18 &euro;</td>
+            <td>15 &euro;</td>
+          </tr>
+          <tr>
+            <th scope="row">Solo walk 45 min</th>
+            <td>24 &euro;</td>
+            <td>20 &euro;</td>
+          </tr>
+          <tr>
+            <th scope="row">Puppy visit 30 min</th>
+            <td>15 &euro;</td>
+            <td>13 &euro;</td>
+          </tr>
+          <tr>
+            <th scope="row">Pet taxi (in town)</th>
+            <td>22 &euro;</td>
+            <td>20 &euro;</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>When do dogs actually get walked?</h2>
+      <p>This chart is drawn as an inline <strong>SVG</strong> image directly in the HTML.
+         It shows how many walks we did per weekday during September 2026. Fridays are
+         clearly the busiest day.</p>
+
+      <figure class="chart">
+        <svg viewBox="0 0 700 300" role="img" aria-label="Bar chart of walks per weekday: Monday 32, Tuesday 35, Wednesday 38, Thursday 41, Friday 52, Saturday 24, Sunday 0">
+          <title>Walks per weekday, September 2026</title>
+          <!-- axis -->
+          <line x1="60" y1="250" x2="670" y2="250" stroke="#4a2c1a" stroke-width="3"></line>
+          <line x1="60" y1="20" x2="60" y2="250" stroke="#4a2c1a" stroke-width="3"></line>
+          <!-- bars: value * 4 px height, base y=250 -->
+          <rect x="80"  y="122" width="60" height="128" fill="#6ba368"></rect>
+          <rect x="170" y="110" width="60" height="140" fill="#6ba368"></rect>
+          <rect x="260" y="98"  width="60" height="152" fill="#6ba368"></rect>
+          <rect x="350" y="86"  width="60" height="164" fill="#6ba368"></rect>
+          <rect x="440" y="42"  width="60" height="208" fill="#f2994a"></rect>
+          <rect x="530" y="154" width="60" height="96"  fill="#6ba368"></rect>
+          <!-- value labels -->
+          <text x="110" y="112" text-anchor="middle" font-size="18" fill="#4a2c1a">32</text>
+          <text x="200" y="100" text-anchor="middle" font-size="18" fill="#4a2c1a">35</text>
+          <text x="290" y="88"  text-anchor="middle" font-size="18" fill="#4a2c1a">38</text>
+          <text x="380" y="76"  text-anchor="middle" font-size="18" fill="#4a2c1a">41</text>
+          <text x="470" y="32"  text-anchor="middle" font-size="18" fill="#4a2c1a">52</text>
+          <text x="560" y="144" text-anchor="middle" font-size="18" fill="#4a2c1a">24</text>
+          <!-- day labels -->
+          <text x="110" y="275" text-anchor="middle" font-size="16" fill="#4a2c1a">Mon</text>
+          <text x="200" y="275" text-anchor="middle" font-size="16" fill="#4a2c1a">Tue</text>
+          <text x="290" y="275" text-anchor="middle" font-size="16" fill="#4a2c1a">Wed</text>
+          <text x="380" y="275" text-anchor="middle" font-size="16" fill="#4a2c1a">Thu</text>
+          <text x="470" y="275" text-anchor="middle" font-size="16" fill="#4a2c1a">Fri</text>
+          <text x="560" y="275" text-anchor="middle" font-size="16" fill="#4a2c1a">Sat</text>
+          <text x="630" y="275" text-anchor="middle" font-size="16" fill="#78512d">Sun: we rest</text>
+        </svg>
+        <figcaption>Happy Paws walks per weekday in September 2026. The orange bar marks the busiest day.</figcaption>
+      </figure>
+
+      <section class="callout">
+        <h2>Ready to book a walk?</h2>
+        <p>Call, email or just come say hi - you find all contact details and our
+           location on the <a href="about.html">about and contact page</a>.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h3>Contact</h3>
+        <address>
+          Happy Paws Vaasa<br>
+          Sandviksgatan 15<br>
+          65100 Vasa, Finland<br>
+          <a href="tel:+358401234567">+358 40 123 4567</a><br>
+          <a href="mailto:hej@happypawsvaasa.fi">hej@happypawsvaasa.fi</a>
+        </address>
+      </div>
+      <div>
+        <h3>Walking hours</h3>
+        <ul>
+          <li>Mon-Fri 08:00-18:00</li>
+          <li>Sat 09:00-15:00</li>
+          <li>Sun closed (dogs rest too)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site map</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services &amp; prices</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About &amp; contact</a></li>
+          <li><a href="report.html">Web report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-note">
+      <p>&copy; 2026 Happy Paws Vaasa. All images drawn by us - no borrowed pixels.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
